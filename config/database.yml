@@ -21,3 +21,6 @@ test:
 
 production:
   <<: *default
+  host: <%= Rails.application.credentials.dev_db_host %>
+  username: <%= Rails.application.credentials.dev_db_username %>
+  password: <%= Rails.application.credentials.dev_db_password %>
