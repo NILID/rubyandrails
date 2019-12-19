@@ -1,0 +1,25 @@
+!!!
+%html(lang='ru')
+  %head
+    %meta(http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1')
+    %meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = display_meta_tags site: 'RubyAndRails'
+    = render 'application/favicon'
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield :js_header
+  %body
+
+    = render 'header'
+
+    .container
+      .row
+        .col
+          - flash.each do |key, value|
+            .animated.fadeIn{ class: flash_class(key) }= value
+
+    = yield
+    = render 'footer'

@@ -1,0 +1,6 @@
+ru:
+  flash:
+    was_created: 'Вы создали: %{model_name}'
+    was_updated: 'Вы обновили: %{model_name}'
+    was_deleted: 'Вы удалили: %{model_name}'
+    was_publish: 'Вы опубликовали: %{model_name}'

@@ -1,0 +1,11 @@
+.container
+  .row
+    .col
+      %h1= @user.login
+    .col.text-right
+      - if can? :edit, @user
+        = link_to t('shared.edit'), edit_user_path(@user), class: 'btn btn-outline-secondary'
+  .row
+    .col-3
+      = image_tag @user.profile.thumbnail('200x200'), class: 'img-fluid' if @user.profile.thumbnail
+    .col-9

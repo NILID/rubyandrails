@@ -1,0 +1,25 @@
+%header
+  .container
+    %nav.navbar.navbar-expand-md.no-gutters
+      .col-3.text-left
+        = link_to root_path, class: 'text-danger' do
+          = image_tag asset_path('logo.png'), alt: 'Ruby and Rails'
+      %button.navbar-toggler{"aria-controls" => "navbarNav7", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => ".navbar-collapse-2", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #navbarNav7.collapse.navbar-collapse.navbar-collapse-2.justify-content-center.col-md-6
+        %ul.navbar-nav.justify-content-center
+          %li.nav-item.active
+            = link_to t('articles.title'), articles_path, class: 'nav-link'
+      .collapse.navbar-collapse.navbar-collapse-2
+        - if user_signed_in?
+          %ul.navbar-nav.ml-auto.justify-content-end
+            %li.nav-item
+              .nav-link= link_to current_user.login, user_path(current_user)
+            %li.nav-item
+              = link_to t('devise.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          %ul.navbar-nav.ml-auto.justify-content-end
+            %li.nav-item
+              = link_to t('devise.login'), new_user_session_path, class: 'nav-link'
+            %li.nav-item
+              = link_to t('devise.register'), new_user_registration_path, class: 'nav-link'

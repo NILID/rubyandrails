@@ -1,0 +1,6 @@
+%p Здравствуйте <%= @email %>!
+
+- if @resource.try(:unconfirmed_email?)
+  %p Мы уведомляем вас, что ваша почта изменена на #{ @resource.unconfirmed_email}.
+- else
+  %p Мы уведомляем вас, что ваша почта была изменена на #{@resource.email}.

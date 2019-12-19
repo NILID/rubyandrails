@@ -1,0 +1,13 @@
+.col-12.pt-3
+  .card
+    - unless article.mini
+      .card-header
+        .lead= link_to article.title, article
+      .card-body
+        = truncate(sanitize(article.content, tags: []), length: 300)
+    - else
+      .card-body
+        .lead
+          %small
+            #{Article.human_attribute_name(:mini)}:
+          = link_to article.title, article

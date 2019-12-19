@@ -1,0 +1,32 @@
+- set_meta_tags title: @article.title,
+  description: @article.title,
+  keywords: @article.title,
+  noindex: !(@article.has_status? :published),
+  index: (@article.has_status? :published)
+
+.container
+  .row
+    .col.text-left
+      .card
+        .card-body
+          %h1.card-title= @article.title
+          = link_to t('shared.edit'), edit_article_path(@article) if can? :edit, @article
+          = link_to t('shared.publish'), publish_article_path(@article), method: :put if can? :publish, @article
+          %p.card-text
+            = sanitize_content(@article.content)
+          .row
+            .col.text-left
+              - @article.urls.each do |url|
+                %p= link_to (url.title? ? url.title : url.url), url.url, rel: 'nofollow', target: '_blank'
+          .row
+            .col
+              .media
+                - if @article.user
+                  = link_to @article.user, class: 'mr-3' do
+                    = image_tag @article.user.profile.thumbnail, class: 'img-fluid rounded' if @article.user.profile.thumbnail
+                .media-body
+                  - if @article.user
+                    = link_to(@article.user.login, @article.user)
+                  - else
+                    anonymous
+                  %p= l @article.created_at, format: :short

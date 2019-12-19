@@ -1,0 +1,8 @@
+.col-12
+  .row.nested-fields
+    .col-5.mt-2
+      = f.url_field :url, autocomplete: "url", class: 'form-control', placeholder: Url.human_attribute_name(:url)
+    .col-5.mt-2
+      = f.text_field :title, autocomplete: "title", class: 'form-control', placeholder: Url.human_attribute_name(:title)
+    .col-2.mt-2
+      = link_to_remove_association fa_icon('remove'), f, class: 'btn btn-outline-secondary btn-sm'

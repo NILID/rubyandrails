@@ -1,0 +1,68 @@
+ru:
+  main:
+    mainpage: Главная
+    about_project: О проекте
+    in_social: Подпишись
+  shared:
+    save: Сохранить
+    no_items: На данный момент записей нет
+    edit: Редактировать
+    add: Добавить
+    publish: Опубликовать
+    back: Назад
+    preview: Предосмотр
+  devise:
+    logout: Выйти
+    login: Войти
+    register: Регистрация
+    to_register: Зарегистрироваться
+    no_confirmation: Не получили код подтверждения регистрации?
+    no_unlock: Не получили код разблокировки аккаунта?
+    forgot_password: Забыли пароль?
+    change_password: Смена пароля
+    change: Сменить
+    min_characters: минимум %{count} символов
+    send_reset_password: Получить инструкцию по сбросу пароля
+    send_confirmation: Получить инструкцию по подтверждению регистрации
+    send_unlock: Получить инструкцию по разблокировки аккаунта
+  urls:
+    add: Добавить ссылку
+  articles:
+    new: Создание новости
+    edit: Редактирование новости
+    published: В ленте
+    unpublished: Неподтвержденные
+    deleted: Удаленные
+  profile:
+    edit: Редактирование профиля
+  users:
+    title: Участники
+    crop: Выбор миниатюры
+  recaptcha:
+    errors:
+      verification_failed: Произошла ошибка в проверочном слове
+  activerecord:
+    models:
+      article: новость
+      profile: профиль
+      user: пользователь
+    attributes:
+      article:
+        title: Заголовок
+        content: Описание
+        mini: Мини-новость
+      urls:
+        url: Ссылка
+      url:
+        url: Ссылка
+        title: Название
+      profile:
+        avatar: Аватар
+      user:
+        login: Логин
+        password: Пароль
+        password_confirmation: Повторите пароль
+        current_password: Текущий пароль
+        created_at: Зарегистрировался
+        last_sign_in_at: Последнее посещение
+        sign_in_count: Количество посещений

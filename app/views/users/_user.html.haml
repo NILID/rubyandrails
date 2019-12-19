@@ -1,0 +1,7 @@
+.col-sm-3.m-sm-auto
+  .row.align-items-center
+    .col-4
+      = image_tag user.profile.thumbnail('200x200'), class: 'img-fluid rounded-circle' if user.profile.thumbnail
+    .col-8
+      %h3= user.login
+      / %p About user

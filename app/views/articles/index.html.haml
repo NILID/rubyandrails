@@ -1,0 +1,27 @@
+- set_meta_tags title: t('articles.title'),
+  description: t('articles.title'),
+  keywords: t('articles.title'),
+  index: (params[:action] == 'index'),
+  noindex: (params[:action] != 'index')
+
+.container
+  .row
+    .col
+      %h1
+        = t 'articles.title'
+    .col
+      - if can? :new, Article
+        = link_to t('shared.add'), new_article_path, class: 'btn btn-secondary btn-sm pull-right'
+  .row
+    .col
+      %ul.nav.nav-tabs
+        %li.nav-item
+          = link_to t('articles.published'), articles_path, class: "nav-link #{ params[:action] == 'index' ? 'active' : nil }"
+        %li.nav-item
+          = link_to t('articles.unpublished'), unpublished_articles_path, class: "nav-link #{ params[:action] == 'unpublished' ? 'active' : nil }"
+        %li.nav-item
+          = link_to t('articles.deleted'), deleted_articles_path, class: "nav-link #{ params[:action] == 'deleted' ? 'active' : nil }"
+
+.container
+  .row.align-items-center
+    = render(partial: 'article', collection: @articles) || render('empty')

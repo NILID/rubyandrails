@@ -1,0 +1,5 @@
+- if object.errors.any?
+  #error_explanation.animated.fadeIn
+    %ul.alert.alert-warning
+      - object.errors.full_messages.each do |msg|
+        %li= msg

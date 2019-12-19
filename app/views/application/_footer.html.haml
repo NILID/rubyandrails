@@ -1,0 +1,23 @@
+%footer.fdb-block.footer-large
+  .container
+    .row.align-items-top.text-center
+      .col-12.col-sm-6.col-md-4.col-lg-3.text-sm-left
+        %nav.nav.flex-column
+          = link_to t('main.mainpage'),  root_path,     class: 'nav-link'
+          = link_to t('articles.title'), articles_path, class: 'nav-link'
+          = link_to t('users.title'),    users_path,    class: 'nav-link'
+      .col-12.col-md-4.col-lg-3.text-md-left.mt-5.mt-md-0
+        %h3
+          %strong= t 'main.about_project'
+        %p Российское Ruby-сообщество
+      .col-12.col-lg-2.ml-auto.text-lg-left.mt-4.mt-lg-0
+        %h3
+          %strong= t 'main.in_social'
+        %p.lead
+          = link_to 'https://instagram.com/rubyandrails', target: '_blank', rel: 'nofollow', class: 'mx-2' do
+            %i.fa.fa-instagram{"aria-hidden" => "true"}><
+          = link_to 'https://vk.com/ruby_and_rails', target: '_blank', rel: 'nofollow', class: 'mx-2' do
+            %i.fa.fa-vk{"aria-hidden" => "true"}><
+    .row.mt-3
+      .col.text-center
+        © 2019 RubyAndRails.ru

@@ -1,0 +1,25 @@
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col-12.col-md-8.col-lg-7.col-md-5.text-center
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'fdb-box fdb-touch' }) do |f|
+          .row
+            .col
+              %h2= t 'devise.login'
+          .row
+            .col.mt-4
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+          .row.mt-4
+            .col
+              = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: User.human_attribute_name(:password)
+
+          - if devise_mapping.rememberable?
+            .row.mt-4
+              .col
+                = f.check_box :remember_me
+                = f.label :remember_me
+          .row.mt-4
+            .col
+              = f.submit t('devise.login'), class: 'btn btn-secondary'
+          .row.mt-4.justify-content-center
+            = render "users/shared/links"

@@ -1,0 +1,42 @@
+- content_for :js_header do
+  = tinymce_assets
+  = javascript_include_tag 'tinymce/tinymce_lang'
+
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col.text-center
+        = form_for(@article, html: { class: 'fdb-box fdb-touch' }) do |f|
+          .row
+            .col
+              %h2= formtitle
+          = render 'application/errors', object: @article
+
+          .row
+            .col.mt-4
+              = f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control', placeholder: Article.human_attribute_name(:title)
+          .row.mt-4
+            .col
+              = f.text_area :content, autofocus: true, autocomplete: "content", rows: '15', class: 'form-control tinymce', placeholder: Article.human_attribute_name(:content)
+              = tinymce
+          .row.mt-4
+            .col
+              = f.check_box :mini
+              = f.label :mini
+          .row.mt-4
+            = f.fields_for :urls do |url|
+              = render 'url_fields', f: url
+          .row
+            .col-12
+              = link_to_add_association t('urls.add'), f, :urls, class: 'btn btn-outline-secondary btn-sm mt-4'
+
+          - unless user_signed_in?
+            .row.mt-4
+              .col
+                .recaptcha-block
+                  = recaptcha_tags hl: 'ru'
+
+          .row.mt-4
+            .col
+              = f.submit t('shared.save'), class: 'btn btn-secondary'
+              = link_to t('shared.back'), :back, class: 'btn btn-outline-secondary'

@@ -1,0 +1,20 @@
+.container
+  .row
+    .col
+      .h2= t 'users.crop'
+  .row
+    .col-9
+      = image_tag @user.profile.avatar,
+        id: 'cropbox',
+        class: 'img-fluid',
+        data: { real_width:  @user.profile.get_size[:width],
+                real_height: @user.profile.get_size[:height]  }
+    .col-3
+      .lead= t('shared.preview')
+      .preview-block.rounded.mt-2
+        = image_tag @user.profile.avatar, id: 'preview'
+      = form_for @user, html: { class: 'mt-4' } do |f|
+        - %w[x y w h].each do |attribute|
+          = f.fields_for :profile do |p|
+            = p.hidden_field "crop_#{attribute}"
+        = f.submit t('shared.save'), class: 'btn btn-secondary'

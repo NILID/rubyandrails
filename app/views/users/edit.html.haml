@@ -1,0 +1,21 @@
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col.text-center
+        = form_for(@user, html: { multipart: true, class: 'fdb-box fdb-touch' }) do |f|
+          .row
+            .col
+              %h2= t 'profile.edit'
+          = render 'application/errors', object: @user
+
+          = f.fields_for :profile do |p|
+            .row.mt-4
+              .col-12
+                = p.label :avatar
+              .col-12
+                = p.file_field :avatar
+
+          .row.mt-4
+            .col
+              = f.submit t('shared.save'), class: 'btn btn-secondary'
+              = link_to t('shared.back'), :back, class: 'btn btn-outline-secondary'

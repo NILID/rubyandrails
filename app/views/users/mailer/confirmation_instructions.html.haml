@@ -1,0 +1,3 @@
+%p Добро пожаловать, #{@email}!
+%p Вы можете подтвердить регистрацию ссылкой ниже:
+%p= link_to 'Подтвердить мою учетную запись', confirmation_url(@resource, confirmation_token: @token)

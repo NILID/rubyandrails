@@ -1,0 +1,22 @@
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col-12.col-md-8.col-lg-7.col-md-5.text-center
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'fdb-box fdb-touch' }) do |f|
+          .row
+            .col
+              %h2= t 'devise.no_confirmation'
+          = render 'errors', object: resource
+          .row
+            .col.mt-4
+              = f.email_field :email,
+                autofocus: true,
+                autocomplete: "email",
+                class: 'form-control',
+                placeholder: 'Email',
+                value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+          .row.mt-4
+            .col
+              = f.submit t('devise.send_confirmation'), class: 'btn btn-secondary'
+          .row.mt-4.justify-content-center
+            = render "users/shared/links"

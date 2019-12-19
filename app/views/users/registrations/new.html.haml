@@ -1,0 +1,30 @@
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col-12.col-md-8.col-lg-7.col-md-5.text-center
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'fdb-box fdb-touch' }) do |f|
+          .row
+            .col
+              %h2= t 'devise.register'
+          = render 'errors', object: resource
+          .row
+            .col.mt-4
+              = f.text_field :login, autofocus: true, autocomplete: "login", class: 'form-control', placeholder: User.human_attribute_name(:login)
+          .row
+            .col.mt-4
+              = f.email_field :email, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+          .row.mt-4
+            .col
+              = f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: User.human_attribute_name(:password)
+              - if @minimum_password_length
+                %small.form-text.text-muted.text-right
+                  = t('devise.min_characters', count: @minimum_password_length)
+          .row.mt-4
+            .col
+              = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: User.human_attribute_name(:password_confirmation)
+
+          .row.mt-4
+            .col
+              = f.submit t('devise.to_register'), class: 'btn btn-secondary'
+          .row.mt-4.justify-content-center
+            = render "users/shared/links"
