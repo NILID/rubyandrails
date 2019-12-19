@@ -104,7 +104,7 @@ Rails.application.configure do
           :domain         => 'rubyandrails.ru',
           :authentication => :login,
           :user_name      => Rails.application.credentials.am_username,
-          :password       => Rails.application.credentials.am_password
+          :password       => Rails.application.credentials.am_password,
           :enable_starttls_auto  => true
   }
 end
