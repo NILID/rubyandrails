@@ -1,0 +1,22 @@
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col.text-center
+        = form_for @video, html: { class: 'fdb-box fdb-touch' } do |f|
+          .row
+            .col
+              %h2= formtitle
+          = render 'application/errors', object: @video
+
+          .row.mt-4
+            .col
+              = f.label :url, class: 'control-label col-lg-2'
+              = f.text_field :url, class: 'form-control', required: true
+          .row.mt-4
+            .col
+              = f.label :title, class: 'control-label col-lg-2'
+              = f.text_field :title, class: 'form-control', required: true
+          .row.mt-4
+            .col
+              = f.submit t('shared.save'), class: 'btn btn-secondary'
+              = link_to t('shared.back'), :back, class: 'btn btn-outline-secondary'

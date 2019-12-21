@@ -1,0 +1,24 @@
+- set_meta_tags title: t('videos.seo.video_of', title: @video.title),
+  description: t('videos.seo.video_of', title: @video.title),
+  keywords: t('videos.seo.video_of', title: @video.title)
+
+.container
+  .row
+    .col.text-left
+      .card
+        .card-body
+          - video = VideoInfo.new(@video.url)
+          .embed-responsive.embed-responsive-16by9= raw video.embed_code(iframe_attributes: { class: 'embed-responsive-item' })
+
+          .row
+            .col
+              %h1.h2
+                = @video.title
+                %small
+                  - if can? :edit, @video
+                    = link_to t('actions.edit'), edit_video_path(@video), class: 'btn btn-default'
+                  - if can? :destroy, @video
+                    = link_to t('actions.del'), video_path(@video), method: :delete, data: { confirm: t('actions.confirm') }, class: 'btn btn-danger'
+            .col.text-right
+              - if @video.user
+                .mt-2.h4= link_to @video.user.login, @video.user

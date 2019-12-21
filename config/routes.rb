@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/show'
   mount_roboto
 
+  resources :videos
   resources :articles do
     collection do
       get :unpublished

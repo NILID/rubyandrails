@@ -1,0 +1,15 @@
+- set_meta_tags title: @title,
+  description: @title,
+  keywords: @title
+
+%section.fdb-block
+  .container
+    .row.justify-content-center
+      .col.text-left
+        %h1= @title
+      .col.text-right
+        - if can? :create, Video
+          = link_to t('shared.add'), new_video_path, class: 'btn btn-secondary btn-sm pull-right'
+
+    .row.text-left.mt-5
+      = render @videos

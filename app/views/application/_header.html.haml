@@ -8,8 +8,11 @@
         %span.navbar-toggler-icon
       #navbarNav7.collapse.navbar-collapse.navbar-collapse-2.justify-content-center.col-md-6
         %ul.navbar-nav.justify-content-center
-          %li.nav-item.active
+          %li.nav-item{ class: params[:controller] == 'articles' ? 'active' : nil }
             = link_to t('articles.title'), articles_path, class: 'nav-link'
+          %li.nav-item{ class: params[:controller] == 'videos' ? 'active' : nil }
+            = link_to t('videos.title'), videos_path, class: 'nav-link'
+
       .collapse.navbar-collapse.navbar-collapse-2
         - if user_signed_in?
           %ul.navbar-nav.ml-auto.justify-content-end

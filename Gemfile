@@ -30,6 +30,8 @@ gem 'activevalidators'
 
 gem 'meta-tags'
 
+gem 'video_info'
+
 gem 'roboto'
 
 gem 'russian'

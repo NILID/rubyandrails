@@ -15,6 +15,7 @@ class Ability
     end
 
     if (user.role? :user) || (user.role? :moderator)
+      can [:new, :create, :youtube_title], Video
       can [:update, :destroy], Article, user_id: user.id, statuses_mask: 1
       can [:update], User, id: user.id
     end

@@ -1,0 +1,8 @@
+- video_url = VideoInfo.new(video.url)
+
+.col-12.col-sm-8.col-md-4.col-lg-3.m-sm-auto.mr-md-auto.ml-md-0
+  = link_to video_path(video) do
+    = image_tag video_url.thumbnail_medium, class: 'img-fluid rounded'
+
+    .h3
+      %strong= video.title

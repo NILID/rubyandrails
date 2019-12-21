@@ -58,6 +58,9 @@ ru:
         title: Название
       profile:
         avatar: Аватар
+      video:
+        url: Ссылка
+        title: Название
       user:
         login: Логин
         password: Пароль

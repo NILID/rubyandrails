@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :articles
+  has_many :videos
 
   validates :login,
       presence: true,

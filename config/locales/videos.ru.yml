@@ -1,0 +1,14 @@
+ru:
+  videos:
+    title: Видео
+    all_videos: Все видео
+    add_new: Добавить видео
+    new: Создание видео
+    edit: Редактирование видео
+    must_have_http: ссылка должна начинаться с http:// или https://
+    must_have_youtube: ссылка должна быть на ресурс youtube
+    user_uploads: 'Участник загрузил видео:'
+    user_uploads_empty: 'Участник пока не загрузил ни одного видео:'
+    you_uploads: 'Вы загрузили видео:'
+    you_uploads_empty: 'Вы пока не загрузили ни одного видео:'
+    last_upload: Последние загруженный видео.
