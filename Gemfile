@@ -22,7 +22,6 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'devise'
 gem 'cancancan'
 gem "haml-rails", "~> 2.0"
-gem 'omniauth'
 
 gem 'cocoon'
 

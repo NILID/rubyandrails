@@ -133,7 +133,6 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
-    hashie (3.6.0)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -184,9 +183,6 @@ GEM
     oga (2.15)
       ast
       ruby-ll (~> 2.1)
-    omniauth (1.9.0)
-      hashie (>= 3.4.6, < 3.7.0)
-      rack (>= 1.6.2, < 3)
     orm_adapter (0.5.0)
     pagy (3.5.1)
     phony (2.18.7)
@@ -350,7 +346,6 @@ DEPENDENCIES
   mini_magick
   mini_racer
   mysql2
-  omniauth
   pagy
   pry
   puma (~> 3.12)
