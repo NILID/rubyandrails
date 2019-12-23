@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe VideosController do
   let!(:video) { create(:video) }
-  let(:author)  { video.user }
+  let(:author) { video.user }
 
   describe 'admin activities should' do
     login_user(:admin)

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ArticlesController do
   let!(:article) { create(:article, :published) }
-  let(:author)  { article.user }
+  let(:author)   { article.user }
   let!(:unpublished_article) { create(:article, user: author) }
 
   describe 'admin activities should' do

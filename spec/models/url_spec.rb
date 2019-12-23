@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Url, type: :model do
-  let(:url) { build(:url) }
+  let(:url) { build_stubbed(:url) }
 
   context 'should' do
     it 'have valid url' do

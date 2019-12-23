@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Video, type: :model do
-  let(:video) { build(:video) }
+  let(:video) { build_stubbed(:video) }
 
   context 'should' do
     it 'title should be present' do
